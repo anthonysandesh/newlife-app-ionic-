@@ -1,0 +1,311 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">
+      Membership
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+  <form #MembershipSubmit="ngForm" padding class="form-content" (ngSubmit)="onSubmit(MembershipSubmit)" >
+    <ion-card-content class="a">Preliminary Membership Form</ion-card-content>
+     <div class="example-container">
+      <mat-card class="example-container">
+        <mat-form-field>
+          <mat-label>Prefix</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let prefix of prefix" [value]="prefix.value">{{prefix.viewValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="First Name" [formControl]="name" required>
+          <mat-error *ngIf="name.invalid">{{getErrorMessage1()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Last Name" [formControl]="name" required>
+          <mat-error *ngIf="name.invalid">{{getErrorMessage1()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field> 
+          <input type="tel" matInput #input maxlength="10" matInput placeholder="Phone number" required>
+        </mat-form-field> 
+        <mat-form-field>
+          <input matInput placeholder="Email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="City" [formControl]="name" required>
+          <mat-error *ngIf="name.invalid">{{getErrorMessage1()}}</mat-error>
+        </mat-form-field>
+      </mat-card>
+      <br>
+        <!--Contact Information-->
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Contact Information</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="example-container">
+            <mat-form-field>
+              <input matInput placeholder="Street/House No.">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Address Line 1">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Address Line 2">
+            </mat-form-field>
+
+            
+
+            <mat-form-field>
+              <mat-label>Country</mat-label>
+              <mat-select>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>State</mat-label>
+              <mat-select>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Postal Code" type="number" maxlength="6">
+            </mat-form-field>
+          </div>
+          
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+        
+          <mat-expansion-panel-header>
+
+          <!--Personal Information-->
+  
+          <mat-panel-title>Personal Information</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="example-container">      
+          <mat-form-field>     
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" disabled>     
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>     
+            <mat-datepicker #picker disabled="false"></mat-datepicker>      
+          </mat-form-field> 
+     
+          <mat-form-field>                
+            <mat-label>Gender</mat-label>            
+            <mat-select>            
+              <mat-option>None</mat-option>              
+              <mat-option *ngFor="let gender of gender" [value]="gender">{{gender}}</mat-option>              
+            </mat-select>               
+          </mat-form-field>   
+                              
+          <mat-form-field>               
+            <mat-label>Marital Status</mat-label>               
+            <mat-select>              
+              <mat-option>None</mat-option>              
+              <mat-option *ngFor="let maritalstatus of maritalstatus" [value]="maritalstatus">{{maritalstatus}}</mat-option>               
+            </mat-select>             
+          </mat-form-field> 
+               
+          <mat-label>Upload Image</mat-label>               
+          <input type="file" (change)="onFileSelected($event)">               
+          <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload</button>              
+        </div>      
+      </mat-expansion-panel>
+
+            
+      <!--Professional Information-->
+             
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">           
+        <mat-expansion-panel-header>                          
+          <mat-panel-title>Professional Info</mat-panel-title>           
+        </mat-expansion-panel-header>           
+        <div class="example-container">           
+          <mat-form-field>                 
+            <input matInput placeholder="Rank Or Profession">              
+          </mat-form-field>              
+          <mat-form-field>               
+            <input matInput placeholder="Education">            
+          </mat-form-field>            
+          <mat-form-field>              
+            <input matInput placeholder="Place of Employment">          
+          </mat-form-field>         
+        </div>    
+      </mat-expansion-panel>
+
+            
+      <!--Christial Details-->
+            
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>  
+          <mat-panel-title>Christian Details</mat-panel-title>            
+        </mat-expansion-panel-header>           
+        <div class="example-container">               
+          <mat-label>Jesus Christ as Savior / Born Again</mat-label>             
+          <mat-form-field>               
+            <input matInput [matDatepicker]="picker1" placeholder="Choose a date" disabled>               
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>                
+            <mat-datepicker #picker1 disabled="false"></mat-datepicker>             
+          </mat-form-field> 
+
+          <mat-label>Water Baptism by Immersion Day</mat-label>             
+          <mat-form-field>               
+            <input matInput [matDatepicker]="picker2" placeholder="Choose a date" disabled>               
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>               
+            <mat-datepicker #picker2 disabled="false"></mat-datepicker>             
+          </mat-form-field> 
+            
+          <mat-label>Holy Spirit baptism with speaking in Tongues Day</mat-label>              
+          <mat-form-field>               
+            <input matInput [matDatepicker]="picker3" placeholder="Choose a date" disabled>               
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>               
+            <mat-datepicker #picker3 disabled="false"></mat-datepicker>             
+          </mat-form-field> 
+             
+          <mat-label>Since when are you attending AG Church?</mat-label>             
+          <mat-form-field>               
+            <input matInput [matDatepicker]="picker4" placeholder="Choose a date" disabled>               
+            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>               
+            <mat-datepicker #picker4 disabled="false"></mat-datepicker>             
+          </mat-form-field>          
+        </div>         
+      </mat-expansion-panel>
+
+      <!--More Info-->
+ 
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>      
+          <mat-panel-title>More Info</mat-panel-title>               
+        </mat-expansion-panel-header>
+                
+        <mat-label>Available to help in</mat-label>               
+        <div class="example-container">                
+          <mat-checkbox>Sunday School</mat-checkbox>               
+          <mat-checkbox>Multimedia (LCD)</mat-checkbox>               
+          <mat-checkbox>Sound </mat-checkbox>                
+          <mat-checkbox>Lights</mat-checkbox>                
+          <mat-checkbox>Video</mat-checkbox>                
+          <mat-checkbox>Welcome</mat-checkbox>               
+          <mat-checkbox>Library</mat-checkbox>               
+          <mat-checkbox>Worship</mat-checkbox>
+                
+          <mat-checkbox>Ushering</mat-checkbox>
+                
+          <mat-checkbox>Security</mat-checkbox>
+                
+          <mat-checkbox>Catering</mat-checkbox>               
+          <mat-checkbox>Choreography</mat-checkbox>               
+          <mat-checkbox>Others</mat-checkbox>               
+        </div>             
+      </mat-expansion-panel>
+
+
+      <!--Family Members Information-->
+
+              
+      <!--TO BE DONE LATER-->
+
+      <!-- 
+        
+  
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+        <mat-panel-title>
+            Family Members Information
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="example-container">
+            <mat-label>Choose no. of family member(s) / Relative(s) </mat-label>
+            <mat-form-field>
+                <mat-select [(ngModel)]="show" [ngModelOptions]="{standalone: true}">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let family of family" [value]="family">{{family}}</mat-option>
+                </mat-select>
+              </mat-form-field> 
+        </div>
+      </mat-expansion-panel> -->
+          
+    </mat-accordion>
+  </div>
+
+    
+  <div class="example-container" *ngIf="show">
+      
+    <mat-card>
+        
+      <mat-form-field>
+        
+        <input matInput placeholder="Name" [formControl]="name">
+        
+      </mat-form-field>
+
+        
+      <mat-form-field>
+       
+        <input matInput placeholder="Email" [formControl]="email">
+       
+      </mat-form-field>
+
+        
+      <mat-form-field>
+        
+        <input matInput [matDatepicker]="picker5" placeholder="Choose a date" disabled>
+         
+        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+         
+        <mat-datepicker #picker5 disabled="false"></mat-datepicker>
+         
+      </mat-form-field> 
+
+         
+      <mat-form-field>
+        <input matInput placeholder="Relationship" [formControl]="relationship">
+      </mat-form-field>
+         
+      </mat-card>
+    
+    </div>
+
+    <br>
+    <div class="example-container">
+     
+      <mat-form-field>
+        
+       <textarea  matInput placeholder="Remarks" ></textarea>
+      
+      
+      </mat-form-field>
+    
+    
+    </div>
+    
+    
+    <div class="example-button-row">
+      
+      
+      <button mat-stroked-button class="btn" [disabled]="!MembershipSubmit.form.valid">Submit</button>
+    
+    
+    </div>
+  
+  
+  </form>
+
+</ion-content>

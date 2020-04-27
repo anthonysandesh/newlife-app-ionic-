@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="primary">Carecells</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-list>
+      <ion-item [color]="even? 'light' : 'grey'" *ngFor="let meetup of meetups; let even = even" (click)="chooseMeetup(meetup)">  
+      
+    <ion-label>
+        <p class="name">{{meetup.name}}</p>
+      <ion-row>
+        <ion-col> 
+            <ion-row><p class="type">Type: {{meetup.type}}</p></ion-row>
+            <ion-row><p class="frequency">Freq: {{meetup.frequency}}</p></ion-row>
+            <ion-row><p class="join">26 Interested</p></ion-row>
+        </ion-col>
+        <ion-col>
+            <img class="img" [src]="meetup.logo">
+        </ion-col>
+        <ion-col>
+          <ion-row><p class="time"><ion-icon name="time"></ion-icon> {{meetup.time}}</p></ion-row>
+          <ion-row><p class="location"><ion-icon name="pin"></ion-icon> {{meetup.location}}</p></ion-row>
+          <ion-row><p class="join">Click to Join</p></ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-label>     
+      </ion-item>
+    </ion-list> -->
+
+    <ion-list>
+      <ion-item [color]="even? 'light' : 'grey'" *ngFor="let meetup of meetups; let even = even" (click)="chooseMeetup(meetup)">  
+       <img class="img" [src]="meetup.logo">
+    <ion-label>
+       <p class="name">{{meetup.name}}</p>
+       <ion-row>
+      <ion-col>
+          <ion-row><p class="type"><ion-icon name="people"></ion-icon> {{meetup.type}}</p></ion-row>
+        <ion-row><p class="frequency"><ion-icon name="calendar"></ion-icon> {{meetup.frequency}}</p></ion-row>
+      </ion-col>
+      <ion-col>          
+        <ion-row><p class="time"><ion-icon name="time"></ion-icon> {{meetup.time}}</p></ion-row>
+          <ion-row><p class="location"><ion-icon name="pin"></ion-icon> {{meetup.location}}</p></ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-row><i class="material-icons">chevron_right</i></ion-row>
+      </ion-col>
+    </ion-row>
+    </ion-label>     
+      </ion-item>
+    </ion-list>
+</ion-content>

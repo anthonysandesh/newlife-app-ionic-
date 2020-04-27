@@ -1,0 +1,35 @@
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .example-button-row button,
+.example-button-row a {
+ // margin-right: 8px;
+  margin-left: 35%;
+}
+
+.address{
+    text-align: center;
+    margin: 14px;
+    margin-top: 0px;
+}
+.location{
+  color: #1A237E;
+  font-size: 25px;
+  font-weight:bold;
+}
+.add{
+  color: #78909C;
+}
+.colour{
+  color:#1A237E;
+}
+ion-content{
+  --ion-background-color:#E8EAF6;
+}

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">Amin Card</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <mat-card class="example-card">
+        <mat-card-header class="avatar1">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="avatar"><strong>{{name}}</strong></mat-card-title>
+          <mat-card-subtitle class="avatar2">{{id}}</mat-card-subtitle>
+        </mat-card-header>
+        <ion-row class="plan6">
+          <ion-col>
+          <p class="plan1"><strong>VALID FROM</strong></p>
+          <p class="plan7"><strong> {{from}}</strong> </p>
+          </ion-col>
+          <ion-col>
+            <p class="plan1"><strong>VALID TO</strong></p>
+            <p class="plan7"><strong>{{to}}</strong> </p>
+          </ion-col>  
+        </ion-row>
+        <img src="/assets/logo.png">
+    </mat-card>
+</ion-content>

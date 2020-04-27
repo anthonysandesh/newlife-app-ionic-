@@ -1,0 +1,22 @@
+
+.example-card {
+    max-width: 400px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+  .example-container > * {
+    width: 100%;
+  }
+
+  /deep/.mat-tab-label, /deep/.mat-tab-label-active{
+    min-width: 48% !important;
+    padding: 3px !important;
+    margin: 3px !important;
+  }
+
+  /deep/.mat-tab-label-active{
+    
+  }

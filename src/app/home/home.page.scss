@@ -1,0 +1,100 @@
+.img{
+  background-image: url("/assets/church1.jpg");
+  height: 60%;
+  // width: 300px;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+// ion-slides {
+//   --bullet-background: #ffffff;
+//   --bullet-background-active: #b8b8b8;
+// }
+.share-icon-div{
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+.icon{
+  height: 25px;
+  width: 25px;
+}
+.sidemenu{
+  color: white;
+  margin-top: 18px;
+  position: fixed;
+}
+.icon-div{
+  text-align: center;
+  top: 30%;
+  position: relative;
+}
+.play-icon{
+  width: 90px;
+  height: 90px;
+  filter: invert(0.9);
+}
+.play-icon:hover{
+  filter: invert(0.8);
+}
+.text-1{
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 33%;
+}
+.text-2{
+  font-size: 19px;
+  letter-spacing: 3px;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 36%;
+}
+// .text-3{
+//     font-size: 18px;
+//     letter-spacing: 3px;
+//     color: white;
+//     text-align: center;
+//     position: relative;
+//     top: 23%;
+// }
+/deep/.mat-tab-label, /deep/.mat-tab-label-active{
+  min-width: 31% !important;
+  min-height: 10% !important;
+  padding: 3px !important;
+  margin: 3px !important;
+
+}
+ion-searchbar{
+  --ion-background-color:#fff;
+}
+p{
+  color: #78909C;
+}
+.dateAlign{
+  position: absolute;
+  top: 5px;
+  font-size: 35px;
+  font-weight: bold; 
+  margin-left: 75%;
+  color: #1A237E;
+}
+.monthAlign{
+  position: absolute;
+  top: 51px;
+  font-size: 20px;
+  font-weight: bold; 
+  margin-left: 75%;
+  color: #1A237E;
+
+}
+.card{
+  margin-bottom: 6px;
+  padding-bottom: 10px;
+  margin-right: 6px;
+  margin-left: 6px;
+}

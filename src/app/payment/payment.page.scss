@@ -1,0 +1,30 @@
+.example-container2 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+   }
+   .example-container1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    left: 132px;
+    bottom: 65px;
+   }
+   .example-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   }
+   .cvv {
+    bottom: 68px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   }
+   .button1 {
+    padding-left: 88px;
+   }
+   .button2 {
+    margin-left: 94px;
+    margin-top: 18px;
+   }

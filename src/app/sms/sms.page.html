@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title class="title" color="primary">SMS</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding class="form-content">
+  <form>
+    <ion-card>
+       <ion-card-content class="credit">Available Credits : {{credit}}</ion-card-content>
+    </ion-card>   
+
+   <mat-card class="card"> 
+     <mat-form-field class="sms">
+          <mat-select placeholder="Select the group" [(ngModel)]="selectedGroup" [ngModelOptions]="{standalone: true}" name="group">
+            <mat-option *ngFor="let group of groups" [value]="group.nop">{{group.name}}</mat-option>
+          </mat-select>
+     </mat-form-field>     
+   </mat-card>
+
+<div *ngIf="selectedGroup">   
+   <p color="dark">No. of Members : {{selectedGroup}} </p>
+
+   <div *ngIf="sms.length == ((credit/selectedGroup)|number:'1.0-0')*charPerSMS">
+     <ion-card class="credit_alert" color="danger">Credits Insufficient! Please Recharge</ion-card>
+   </div>
+
+  
+  <ion-textarea class="SMS" rows="7" cols="10" maxlength="{{((credit/selectedGroup)|number:'1.0-0')*charPerSMS}}" [(ngModel)]="sms" [ngModelOptions]="{standalone: true}" placeholder="Enter the message..."></ion-textarea>
+  
+  <div class="sms1">
+    <span color="dark">{{((charPerSMS * maxSMS) - sms.length)}} left</span>
+
+    <div color="dark" *ngIf="sms.length <= charPerSMS && sms.length>=1">SMS used : 1</div>
+    <div color="dark" *ngIf="sms.length > charPerSMS && (sms.length % charPerSMS)!=0" >SMS used : {{ ((sms.length - (sms.length % charPerSMS))/charPerSMS) +1  }}</div>
+    <div color="dark" *ngIf=" sms.length > charPerSMS && (sms.length % charPerSMS)==0">SMS used : {{ ((sms.length - (sms.length % charPerSMS))/charPerSMS)  }}</div>
+
+    <div color="dark" *ngIf="(sms.length <= charPerSMS && sms.length>=1) ">Credits used : {{ selectedGroup }}</div>
+    <div color="dark" *ngIf="(sms.length > charPerSMS && (sms.length % charPerSMS)!=0) " >Credits used : {{ (((sms.length - (sms.length % charPerSMS))/charPerSMS) +1) * selectedGroup }}</div>
+    <div color="dark" *ngIf="(sms.length > charPerSMS && (sms.length % charPerSMS)==0) ">Credits used : {{ ((sms.length - (sms.length % charPerSMS))/charPerSMS) * selectedGroup }}</div>
+ 
+  </div>
+  <div class="Buttons">  
+      <ion-button color="primary" (click)="myFunc()" class="submit-btn" type="submit">Cancel</ion-button>
+    <ion-button color="primary" (click)="send()" class="submit-btn" type="submit">Send</ion-button>
+  </div>  
+</div>   
+</form>
+</ion-content>

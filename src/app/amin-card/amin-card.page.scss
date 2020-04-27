@@ -1,0 +1,63 @@
+.logo{
+    margin-left: 50px;
+    background-color:white;
+    width:85px;
+    height:40px;
+  }
+.example-card {
+    max-width: 400px;
+    background-color: #0D1E3D;
+    // background-image: url('/assets/logo.jpg');
+    margin: 8px;
+    height: 162px;
+  }
+  .example-header-image {
+    background-image: url('/assets/pankaj-profile.png');
+    background-size: cover;
+    width:80px;
+    height:80px;
+  }
+  
+  .avatar{
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-right: 0px;
+    font-family:'Noticia Text';
+    font-size: 25px;
+    color:white;
+  }
+  .avatar1{
+    height: 80px;
+  }
+  .avatar2{
+    margin-left: 10px;
+    margin-right: 0px;
+    font-family:'Iceland';
+    font-size: 20px;
+    
+    color: white;
+  }
+  .plan1{
+    margin-left: 1px;
+    font-size: 10px;
+    font-family: 'Franklin Gothic Medium';
+    color: white;
+  }
+  .plan6{
+    height: 32px;
+  }
+  .plan7{
+    margin-left: 2px;
+    font-size: 20px;
+    margin-top: 0px;
+    font-family:'Iceland';
+    color: white;
+  }
+
+  img{
+    height: 45px;
+    width: 65px;
+    left: 76%;
+    position: absolute;
+    top: 70%;
+  }

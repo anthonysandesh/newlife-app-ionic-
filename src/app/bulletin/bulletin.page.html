@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Bulletin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- <h2>Bulletin</h2>
+<ul *ngFor="let bulletin of bulletins">
+  <li>{{bulletin.Attachment}}</li>
+  <li>{{bulletin.postDate}}</li>
+  <li>{{bulletin.nid}}</li>
+  <li>{{bulletin.title}}</li>
+  <li>{{bulletin.field_media}}</li>
+</ul> -->
+    <ion-searchbar [(ngModel)]="bulletinTitle" placeholder="Search by Title or Date"></ion-searchbar>
+    <!-- <ion-row>
+        <p style="color:#fff;">  Total: {{filteredItems.length}}</p>
+      <ion-col>
+        <div *ngFor="let bulletin of bulletins | filter:bulletinTitle  as filteredItems">
+            <div *ngFor="let bulletin of bulletins">
+          <a (click)="viewFile(bulletin.Attachment)">
+            <div>Click me</div> 
+            <ion-img [src]="bulletin.field_media">Click me</ion-img>
+             <img src="bulletin.field_media" alt="Smiley face" height="42" width="42">
+          </a>
+        </div>
+      </ion-col>
+
+      <ion-col>
+
+      </ion-col>
+    </ion-row> -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col >
+          <div *ngFor="let bulletin of bulletins">
+            <a (click)="viewFile(bulletin.Attachment)">
+                <ion-img [src]="bulletin.field_media"></ion-img>
+            </a>
+          </div>
+        </ion-col>
+        <ion-col>
+            <div *ngFor="let bulletin of bulletins">
+              <a (click)="viewFile(bulletin.Attachment)">
+                  <ion-img [src]="bulletin.field_media"></ion-img>
+              </a>
+            </div>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

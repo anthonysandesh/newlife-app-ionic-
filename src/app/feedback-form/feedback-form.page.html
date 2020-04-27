@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">
+      FeedBack
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form padding class="form-content">
+    <mat-card>
+      <!-- <ion-card-content class="a">FeedBack</ion-card-content> -->
+    
+    <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Name" [formControl]="name" required>
+          <mat-error *ngIf="name.invalid">{{getErrorMessage1()}}</mat-error>
+          <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        
+          <mat-form-field>
+          <input matInput placeholder="Email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <!-- <span matPrefix>+91 &nbsp;</span>   -->
+          <input type="number"matInput  maxlength="10" minlength=10 maxlength=10 matInput placeholder="Phone number" required>
+          <mat-icon matSuffix>phone</mat-icon> 
+        </mat-form-field>
+    </div>
+
+    <div class="example-container">
+     <mat-form-field>
+        <textarea  rows="8"  matInput placeholder="Message" [formControl]="message" required></textarea>
+        <mat-error *ngIf="message.invalid">{{getErrorMessage2()}}</mat-error>
+        <mat-icon matSuffix>message</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="example-button-row">
+      <button mat-stroked-button class="colour">Send</button>
+    </div>
+  </mat-card>
+  </form>
+ 
+  <mat-card class="address">
+    <p class="location">{{location}}</p>
+    <p class="add">{{address}}</p>
+  </mat-card>
+</ion-content>

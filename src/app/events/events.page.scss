@@ -1,0 +1,51 @@
+page-card-image {}
+
+.button1{
+    background-color: white;
+    color: #ffa345;
+    font-size: 14px;
+}
+.card-title{
+    color: #ffa345;
+    text-align: center;
+}
+
+mat-card-title{
+    font-size: 20px;
+    //font-weight: bold;
+    color: #1A237E;
+}
+ion-searchbar{
+    --ion-background-color:#fff;
+}
+p{
+    color: #78909C;
+}
+.dateAlign{
+    position: absolute;
+    top: 5px;
+    font-size: 35px;
+    font-weight: bold; 
+    margin-left: 75%;
+    color: #1A237E;
+}
+.monthAlign{
+    position: absolute;
+    top: 51px;
+    font-size: 20px;
+    font-weight: bold; 
+    margin-left: 75%;
+    color: #1A237E;
+
+}
+.card{
+    margin-bottom: 6px;
+    padding-bottom: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+/deep/.mat-tab-label, /deep/.mat-tab-label-active{
+    min-width: 48% !important;
+    padding: 3px !important;
+    margin: 3px !important;
+  }

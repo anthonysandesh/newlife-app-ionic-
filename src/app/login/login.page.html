@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+  <mat-card>
+    <form [formGroup]="loginForm" (submit)="onSubmit()" padding class="form-content">
+      <div class="example-container">
+      <mat-form-field class="form-field">
+          <input matInput placeholder="Your Amin ID" formControlName="aminID" type="text" autocomplete="off">
+          <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+          <input matInput placeholder="Enter Password" [type]="show ? 'text' : 'password'" formControlName="password" type="password" autocomplete="off">
+          <mat-icon matSuffix (click)="password()">remove_red_eye</mat-icon>
+      </mat-form-field>
+      <a href="http://amin.newlifeag.in/user/password">Forgot Your Password?</a>
+        </div>
+      <br>
+        <button mat-raised-button class="btn" type="submit">LOGIN</button>
+        <br>
+        <!-- <button mat-raised-button class="btn" type="submit" (click)="register()">REGISTER</!--> 
+      </form>
+</mat-card>
+</ion-content>

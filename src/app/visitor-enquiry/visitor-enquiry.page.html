@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title color="primary">
+         Visitor Enquiry Form
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+  <form [formGroup]="enquiryForm" (ngSubmit)="onFormSubmit(enquiryForm.value)">
+    <mat-card class="card1">
+       <mat-form-field class="example-container">
+          <input matInput [(ngModel)]="name" formControlName="fname" placeholder="Enter your Name">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="!enquiryForm.get('fname').valid && enquiryForm.get('fname').touched">Please enter your Name</mat-error>
+       </mat-form-field>
+
+       <mat-form-field  class="example-container1" hintLabel="Max 10 characters">
+         <span matPrefix>+91 &nbsp;</span>
+         <input type="number" #input maxlength="10" matInput [(ngModel)]="phone" formControlName="mobile" placeholder="Mobile Number"  required>
+         <mat-icon matSuffix>phone</mat-icon>
+         <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+         <mat-error *ngIf="!enquiryForm.get('mobile').valid && enquiryForm.get('mobile').touched">Please enter the Mobile number</mat-error>
+       </mat-form-field>
+       
+       <button mat-raised-button (click)="openDialog()" [disabled]="!enquiryForm.get('mobile').valid" class="button1">Verify</button>
+       <div class="btn-div">
+         <i *ngIf="otp == otp1" class="otp1">Verified</i> 
+         <i *ngIf="(otp != otp1) && (otp != null)" class="otp2">Verification Failed</i> 
+      </div>
+       <mat-card-content>
+         <div class="btn-div"><button mat-raised-button class="button2" [disabled]="!enquiryForm.valid">Submit</button> </div>
+      </mat-card-content>      
+    </mat-card>   
+  </form>  
+</ion-content>

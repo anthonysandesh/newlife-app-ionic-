@@ -1,0 +1,7 @@
+{
+  "name": "newlife_modules",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

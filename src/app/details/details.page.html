@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaulthref=""></ion-back-button>
+        </ion-buttons>
+      <ion-title>Event Registration</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+  <ion-content>
+     <div *ngIf="selection">
+       <ion-card>
+        <img [src]="selection.imageUrl"/>
+        <ion-card-content>
+          <h2 class="card-title">{{selection.title}}</h2>
+          <p>{{selection.description}}</p>
+        </ion-card-content>
+       </ion-card>
+  
+  <form  padding class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your Name" [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessage2()}}</mat-error>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-icon matSuffix>email</mat-icon>
+      <input matInput placeholder="Enter your email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-icon matSuffix>call</mat-icon>
+      <span matPrefix>+91 &nbsp;</span>
+      <input type="tel" matInput #input maxlength="10" matInput placeholder="Mobile Number" [formControl]="mobile" required>
+      <mat-error *ngIf="mobile.invalid">{{getErrorMessage1()}}</mat-error>
+   </mat-form-field>
+  
+   <button mat-raised-button color="primary" style="width:112px" class="pay" (click)="pay()">Pay</button>
+  </form>
+  </div> 
+  </ion-content>

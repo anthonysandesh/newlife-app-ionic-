@@ -1,0 +1,424 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      <ion-title>Member Services</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+     <!-- <form padding class="form-content bg"> -->
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Baby Dedication Form
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+    
+        <form padding class="form-content" > 
+            <div class="example-container">
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Child's Full Name" autocomplete="off" [formControl]="cfname" required>
+                    <mat-icon matSuffix>child_care</mat-icon>
+                    <mat-error *ngIf="cfname.invalid">{{childsFullName()}}</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field class="form-field">
+                  <input matInput [matDatepicker]="pickerOne" placeholder="Date of Birth" autocomplete="off"  required disabled>
+                  <mat-datepicker-toggle matSuffix [for]="pickerOne"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerOne disabled="false"></mat-datepicker>
+                  <!-- <mat-error *ngIf="dob.invalid">{{dOB()}}</mat-error> -->
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Place of Birth" autocomplete="off" [formControl]="pob" required>
+                    <mat-icon matSuffix>place</mat-icon>
+                    <mat-error *ngIf="pob.invalid">{{pOB()}}</mat-error>
+  
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Father's Full Name" autocomplete="off" [formControl]="ffname" required>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error *ngIf="ffname.invalid">{{fathersFullName()}}</mat-error>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Mother's Full Name" autocomplete="off" [formControl]="mfname" required>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error *ngIf="mfname.invalid">{{mothersFullName()}}</mat-error>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                  <input matInput placeholder="Full Address" autocomplete="off" [formControl]="faddress" required>
+                  <mat-icon matSuffix>location_city</mat-icon>
+                  <mat-error *ngIf="faddress.invalid">{{fullAddress()}}</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                <input matInput type="number" placeholder="Phone Number" autocomplete="off" [formControl]="phone" required>
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-error *ngIf="phone.invalid">{{Phone()}}</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field class="form-field">
+              <input matInput [matDatepicker]="pickerOne1" placeholder="Attending NLAG Since" autocomplete="off"disabled required>
+              <mat-datepicker-toggle matSuffix [for]="pickerOne1"></mat-datepicker-toggle>
+              <mat-datepicker #pickerOne1 disabled="false"></mat-datepicker>
+              <!-- <mat-error *ngIf="asince.invalid">{{attendingSince()}}</mat-error> -->
+            </mat-form-field>
+  
+            <mat-form-field class="form-field">
+              <input matInput [matDatepicker]="pickerOne2" placeholder="Date of Dedication" autocomplete="off" disabled required>
+              <mat-datepicker-toggle matSuffix [for]="pickerOne2"></mat-datepicker-toggle>
+              <mat-datepicker #pickerOne2 disabled="false"></mat-datepicker>
+              <!-- <mat-error *ngIf="dod.invalid">{{dOD()}}</mat-error> -->
+            </mat-form-field>
+            </div>
+            <button mat-raised-button class="btn" color="primary" type="submit" [disabled]="phone.invalid && faddress.invalid">SUBMIT</button>
+            </form>
+  
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Certificate Request Form
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <form padding class="form-content"> 
+          <div class="example-container">
+              <mat-form-field class="form-field">
+                  <input matInput placeholder="Full Name" autocomplete="off" [formControl]="crfname" required>
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-error *ngIf="crfname.invalid">{{cRFullName()}}</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                <input matInput type="number" placeholder="Phone Number" autocomplete="off" [formControl]="crphone" required>
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-error *ngIf="crphone.invalid">{{cRPhone()}}</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field class="form-field">
+              <input matInput placeholder="Purpose" autocomplete="off" [formControl]="crpurpose" required>
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="crpurpose.invalid">{{cRPurpose()}}</mat-error>
+          </mat-form-field>
+      
+              <mat-form-field class="form-field">
+                <input matInput [matDatepicker]="pickerTwo" placeholder="Needed By date" autocomplete="off" disabled required>
+                <mat-datepicker-toggle matSuffix [for]="pickerTwo"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTwo disabled="false"></mat-datepicker>
+                <!-- <mat-error *ngIf="crneededby.invalid">{{cRNeededBy()}}</mat-error> -->
+              </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                <input matInput placeholder="Full Address" autocomplete="off" [formControl]="crfulladdress" required>
+                <mat-icon matSuffix>location_city</mat-icon>
+                <mat-error *ngIf="crfulladdress.invalid">{{cRFullAddress()}}</mat-error>
+            </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                  <input matInput placeholder="Father's Full Name" autocomplete="off" [formControl]="crfathersfullname" required>
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-error *ngIf="crfathersfullname.invalid">{{cRFathersFullName()}}</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                  <input matInput placeholder="Mother's Full Name" autocomplete="off" [formControl]="crmothersfullname" required>
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-error *ngIf="crmothersfullname.invalid">{{cRMothersFullName()}}</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                <input matInput [matDatepicker]="pickerTwo1" placeholder="Date of Birth" autocomplete="off" disabled required>
+                <mat-datepicker-toggle matSuffix [for]="pickerTwo1"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTwo1 disabled="false"></mat-datepicker>
+                <!-- <mat-error *ngIf="crdob.invalid">{{cRDOB()}}</mat-error> -->
+              </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                <input matInput [matDatepicker]="pickerTwo2" placeholder="Date of Water Baptism" autocomplete="off" disabled required>
+                <mat-datepicker-toggle matSuffix [for]="pickerTwo2"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTwo2 disabled="false"></mat-datepicker>
+                <!-- <mat-error *ngIf="crdowaterbaptism.invalid">{{cRDateOfWaterBaptism()}}</mat-error> -->
+              </mat-form-field>
+  
+              <mat-form-field class="form-field">
+                <input matInput [matDatepicker]="pickerTwo3" placeholder="Attending NLAG Since" autocomplete="off"  required disabled>
+                <mat-datepicker-toggle matSuffix [for]="pickerTwo3"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTwo3 disabled="false"></mat-datepicker>
+                <!-- <mat-error *ngIf="crattendingsince.invalid">{{cRAttendingSince()}}</mat-error> -->
+              </mat-form-field>
+          </div>
+          <button mat-raised-button class="btn" color="primary">SUBMIT</button>
+          </form>
+  
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Application Form for Functions
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+  
+          <form padding class="form-content"> 
+            <div class="example-container">
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Full Name">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput type="number" placeholder="Phone Number">
+                    <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Request For Reason">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+        
+                <mat-form-field class="form-field">
+                  <input matInput [matDatepicker]="pickerThree1" placeholder="Desired Date" disabled>
+                  <mat-datepicker-toggle matSuffix [for]="pickerThree1"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerThree1 disabled="false"></mat-datepicker>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput [matDatepicker]="pickerThree2" placeholder="Desired Date" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="pickerThree2"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerThree2 disabled="false"></mat-datepicker>
+                  </mat-form-field>
+    
+                <mat-form-field class="form-field">
+                    <textarea matInput placeholder="Venue Address"></textarea>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+    
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Type of Service">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+    
+                <mat-form-field class="form-field">
+                    <input matInput type="number" placeholder="No. Expected">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <!-- <mat-form-field class="form-field">
+                    
+                    
+                    
+                </mat-form-field> -->
+  
+                <ion-radio-group>            
+                  <ion-item>
+                    <ion-label>Snacks</ion-label>
+                    <ion-radio slot="start" value="snacks" checked></ion-radio>
+                  </ion-item>
+              
+                  <ion-item>
+                    <ion-label>Meals</ion-label>
+                    <ion-radio slot="start" value="meals"></ion-radio>
+                  </ion-item>
+              
+                  <ion-item>
+                    <ion-label>None</ion-label>
+                    <ion-radio slot="start" value="none"></ion-radio>
+                  </ion-item>
+                </ion-radio-group>
+              
+  
+                <mat-form-field class="form-field">
+                    <textarea matInput placeholder="Further Details"></textarea>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+            </div>
+            <button mat-raised-button class="btn" color="primary">SUBMIT</button>
+            </form>
+  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Hire of Hall for Wedding
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            
+            <form padding class="form-content"> 
+                <div class="example-container">
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Name ID Church/Assembly/Fellowship">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <textarea matInput placeholder="Full Address"></textarea>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput type="number" placeholder="Phone Number">
+                    <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Pastor/Elder In-Charge">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput [matDatepicker]="pickerFour1" placeholder="Wedding Date Requested" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="pickerFour1"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerFour1 disabled="false"></mat-datepicker>
+                  </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Full Name of Bride">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Full Name of Groom">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Wedding Solemnized By">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Marriage License">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                </div>
+                <button mat-raised-button class="btn" color="primary">SUBMIT</button>
+            </form>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Wedding Application Form
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <form padding class="form-content"> 
+                  <div class="example-container">
+                  <mat-form-field class="form-field">
+                      <input matInput placeholder="Name">
+                      <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+      
+                  <mat-form-field class="form-field">
+                      <textarea matInput placeholder="Full Address"></textarea>
+                      <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+      
+                  <mat-form-field class="form-field">
+                      <input matInput type="number" placeholder="Phone Number">
+                      <mat-icon matSuffix>phone</mat-icon>
+                  </mat-form-field>
+      
+                  <mat-form-field class="form-field">
+                      <input matInput [matDatepicker]="pickerFive" placeholder="Date of Birth" autocomplete="off" disabled>
+                      <mat-datepicker-toggle matSuffix [for]="pickerFive"></mat-datepicker-toggle>
+                      <mat-datepicker #pickerFive disabled="false"></mat-datepicker>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Place of Birth" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Education" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Rank Of Profession" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Place of Employment" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Father's Full Name" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Mother's Full Name" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <textarea matInput placeholder="Have You Ever Been Married Before? (If Yes, Give Details)"></textarea>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <textarea matInput placeholder="Have You Ever Been Engaged Before? (If Yes, Give Details)"></textarea>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Previous Religious Background" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Ethnic/Language Background" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <textarea matInput placeholder="Have You Accepted Christ As Your Personal Saviour And Lord? (If Yes, Give Details)"></textarea>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Have You Been Baptised in Water?" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Member of What Church?" autocomplete="off">
+                        <mat-icon matSuffix>place</mat-icon>
+                    </mat-form-field>
+      
+                    <mat-form-field class="form-field">
+                        <input matInput [matDatepicker]="pickerFive1" placeholder="Attending Since" autocomplete="off" disabled>
+                        <mat-datepicker-toggle matSuffix [for]="pickerFive1"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerFive1 disabled="false"></mat-datepicker>
+                      </mat-form-field>
+      
+                      <mat-form-field class="form-field">
+                          <input matInput placeholder="Member of Intended Marriage Partner" autocomplete="off">
+                          <mat-icon matSuffix>place</mat-icon>
+                      </mat-form-field>
+      
+                      <mat-form-field class="form-field">
+                          <textarea matInput placeholder="Do Your Parents Approve of This Marriage? (If No or Reluctantly, Give Explanation)"></textarea>
+                          <mat-icon matSuffix>person</mat-icon>
+                      </mat-form-field>
+      
+                      <mat-form-field class="form-field">
+                          <input matInput [matDatepicker]="pickerFive2" placeholder="Date and Time of Engagement/Wedding" autocomplete="off" disabled>
+                          <mat-datepicker-toggle matSuffix [for]="pickerFive2"></mat-datepicker-toggle>
+                          <mat-datepicker #pickerFive2 disabled="false"></mat-datepicker>
+                        </mat-form-field>
+      
+                  </div>
+                  <button mat-raised-button class="btn" color="primary">SUBMIT</button>
+              </form>
+          </mat-expansion-panel>
+    </mat-accordion>
+  </ion-content>

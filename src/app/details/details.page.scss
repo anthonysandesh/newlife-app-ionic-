@@ -1,0 +1,23 @@
+.card-title{
+    color: #ffa345;
+    text-align: center;
+   }
+   .pay{
+       padding-right: 0px;
+       padding-left: 0px;
+       left: 60px;
+       top: 4px;
+       right: 0px;
+       bottom:0px;
+   }
+   .mat-raised-button {
+    background-color: #ffa345;
+    color: #fff;
+   }
+   .example-container {
+    display: flex;
+    flex-direction: column;
+   }
+   .example-container > * {
+    width: 100%;
+   }

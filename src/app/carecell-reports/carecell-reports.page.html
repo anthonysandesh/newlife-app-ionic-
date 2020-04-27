@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">Carecell Reports</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+<ion-list>
+<ion-item *ngFor="let report of reports">
+  <ion-label>
+    {{report.number}} - {{report.date}}
+  </ion-label>
+</ion-item>
+</ion-list>
+<!-- <p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p> -->
+
+
+    <!-- <form padding class="form-content"> 
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="No.of people attended" type="number" autocomplete="off">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">SUBMIT</button>
+    </div>
+    </form> -->
+
+    <!-- <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Form One
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form (ngSubmit)="logForm1()">
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Place of Birth" [(ngModel)]="todo.title" name="title" autocomplete="off">
+                    <mat-icon matSuffix>place</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Father's Full Name" [(ngModel)]="todo.description" name="description" autocomplete="off">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+
+                <button mat-raised-button class="btn" color="primary" type="submit">SUBMIT</button>
+            </form>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Form Two
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form (ngSubmit)="logForm2()">
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Place of Birth" [(ngModel)]="todid.title" name="title" autocomplete="off">
+                    <mat-icon matSuffix>place</mat-icon>
+                </mat-form-field>
+    
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Father's Full Name" [(ngModel)]="todid.description" name="description" autocomplete="off">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+    
+                <button mat-raised-button class="btn" color="primary" type="submit">SUBMIT</button>
+            </form>
+        </mat-expansion-panel>
+    </mat-accordion> -->
+    <!-- <ol>
+        <li>
+          <mat-form-field>
+            <input matInput [(ngModel)]="name" placeholder="What's your name?">
+          </mat-form-field>
+        </li>
+        <li>
+          <button mat-raised-button (click)="openDialog()">Pick one</button>
+        </li>
+        <li *ngIf="animal">
+          You chose: <i>{{animal}}</i>
+        </li>
+      </ol> -->
+      <div class="icon-div"><ion-icon name="add-circle" class="icon" (click)="openDialog()"></ion-icon></div>
+</ion-content>

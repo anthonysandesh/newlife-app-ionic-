@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      <ion-title>Bookings</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="!eventBookings.length" class="primary-bg" margin-top>
+        <ion-card-content>
+          <p text-center class="text-white">You have no bookings yet.</p>
+        </ion-card-content>
+    </ion-card>
+
+    <div *ngIf="eventBookings.length">
+        <ion-card *ngFor="let book of eventBookings">
+          <ion-card-header  color="light" class="header" text-center>
+            <h6 class="header-text">Booking ID: <strong>{{ book.eventId }}</strong> - 12th May,19</h6>
+          </ion-card-header>
+    
+          <ion-card-content padding *ngIf="book.selection">
+              <img [src]="book.selection.imageUrl"/>
+              <p style="text-align: center" ion-text><strong>{{ book.selection.title }}</strong></p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+</ion-content>

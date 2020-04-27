@@ -1,0 +1,38 @@
+ion-content{
+    --ion-background-color: #E8EAF6;
+   }
+.sms {
+    display: flex;
+    flex-direction: column;
+   }
+   
+   .sms > * {
+    width: 100%;
+   }
+   .title{
+    padding-left: 78px; 
+   }
+   .SMS{
+    background-color: white;
+   }
+   .credit{
+    text-align: center;
+    font-size: 16px;
+    background-color: #1A237E;
+    color: #fff;
+   }
+   .Buttons{
+    text-align: center;
+   }
+   .sms1{
+    margin-left: 14px;
+   }
+   .credit_alert{
+    padding: 3px;
+    margin-left: 0px;
+    margin-right: 0px;
+   }
+   .card{
+       padding-top: 8px;
+       padding-bottom: 5px;
+   }
